@@ -11,6 +11,8 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.2
   flutter_svg: ^0.23.0+1
+  carousel_slider:
+    git: https://github.com/serenader2014/flutter_carousel_slider.git
 
 dev_dependencies:
   flutter_test:

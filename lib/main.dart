@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -31,23 +32,31 @@ class HomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            tile(
-              SvgPicture.asset('assets/svg/manjaro-logo.svg'),
-            ),
-            tile(
-              SvgPicture.network(
-                  'https://raw.githubusercontent.com/dnfield/flutter_svg/7d374d7107561cbd906d7c0ca26fef02cc01e7c8/example/assets/flutter_logo.svg'),
-            ),
+            CarouselSlider(
+              items: [
+                tile(
+                  SvgPicture.asset('assets/svg/manjaro-logo.svg'),
+                ),
+                tile(
+                  SvgPicture.network(
+                      'https://raw.githubusercontent.com/dnfield/flutter_svg/7d374d7107561cbd906d7c0ca26fef02cc01e7c8/example/assets/flutter_logo.svg'),
+                ),
+              ],
+              options: CarouselOptions(
+                autoPlay: true,
+                disableCenter: true,
+                autoPlayCurve: Curves.fastOutSlowIn,
+                enlargeCenterPage: true,
+              ),
+            )
           ],
         ),
       ),
     );
   }
 
-  Container tile(Widget child) {
+  Widget tile(Widget child) {
     return Container(
-      width: 150,
-      height: 150,
       margin: const EdgeInsets.all(10),
       padding: const EdgeInsets.all(15),
       decoration: const BoxDecoration(
